@@ -20,3 +20,10 @@ function totaliza()
     document.form.total.value = total.toFixed(2);
 }
 
+function validaCelular() {
+    var vCel = document.getElementById("cel");
+    if(!vCel.checkValidity()){
+        alert("Informe um celular válido - (99) 99999-9999");
+    }
+}
+

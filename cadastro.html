@@ -25,12 +25,13 @@
     <td><input type="text" name="nome" id="nome" autocomplete="off" required></td></tr>
 
     <tr><td><label for="cpf">CPF:</label></td>
-    <td><input type="text" name="cpf" id="cpf" autocomplete="off" required></td></tr>
+    <td><input type="text" name="cpf" id="cpf" autocomplete="off" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></td></tr>
     <tr><td><label for="email">Email:</label></td>
     <td><input type="email" name="email" id="email" autocomplete="off" required></td></tr>
 
     <tr><td><label for="tel">Celular:</label></td>
-    <td><input type="text" name="cel" id="cel" autocomplete="off" required></td></tr>
+    <td><input type="text" name="cel" id="cel" autocomplete="off" 
+      required pattern="\(\d{2}\)\s\d{5}-\d{4}" onfocusout="validaCelular();"></td></tr>
 
     <tr><td><label for="nascimento">Data Nascimento</label></td>
     <td><input type="date" name="nascimento" id="nascimento" 
