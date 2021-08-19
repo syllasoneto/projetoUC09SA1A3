@@ -16,11 +16,12 @@
   });
 </script>
 </head>
-<body>
+<body onload="contador();">
 
 <form name="form" id="form" onsubmit="return validaGeral();">
   <table>
-  <tr><th colspan=2>Cadastro de Assinantes - Canais de Esporte</th></tr>
+  <tr><th colspan=2>Cadastro de Assinantes - Canais de Esporte </th></tr>
+  <tr><td colspan=2><p id="dataContador" align="right" disabled></p> </td></tr>
   <tr><td><label for="nome">Nome:</label></td>
     <td><input type="text" name="nome" id="nome" autocomplete="off" required></td></tr>
 

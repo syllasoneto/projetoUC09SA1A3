@@ -57,3 +57,10 @@ function validaGeral() {
         return false;
     }
 }
+
+function contador() {
+    var vData = new Date();
+    var vContadorP = document.getElementById("dataContador");
+    var vCont = 1;
+    setInterval(function () {vContadorP.innerHTML = vData + ' ' + vCont++}, 1000);
+}
