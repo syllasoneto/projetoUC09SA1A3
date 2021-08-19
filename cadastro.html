@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<form name="form" id="form" onsubmit="return validar_tudo();">
+<form name="form" id="form" onsubmit="return validaGeral();">
   <table>
   <tr><th colspan=2>Cadastro de Assinantes - Canais de Esporte</th></tr>
   <tr><td><label for="nome">Nome:</label></td>
@@ -110,8 +110,8 @@
       maxlength="8" minlength="6" size=22 required>
     </td></tr>
 
-  <tr><th><button type="submit">Validar Formulário</button></th>
-    <th><input type="button" name="butassin" id="butassin" value="Assinar" 
+  <tr><th><button type="button" onclick="validaGeral();">Validar Formulário</button></th>
+    <th><input type="submit" name="butassin" id="butassin" value="Assinar" 
       disabled onclick="alert('Parabéns! Assinatura Realizada');"></th></tr>
   </table>
 </form>

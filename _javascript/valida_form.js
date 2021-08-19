@@ -24,6 +24,36 @@ function validaCelular() {
     var vCel = document.getElementById("cel");
     if(!vCel.checkValidity()){
         alert("Informe um celular válido - (99) 99999-9999");
+        return false;
+    } else {
+        return true;
     }
 }
 
+function validaUsuarioSenha() {
+    var vUsuario = document.getElementById("login").value;
+    var vSenha = document.getElementById("senha").value;
+    var vValoresValidos = '{"user":"Usuario","password":"Abc$123"}';
+    var vObjJson = JSON.parse(vValoresValidos);
+
+    if(!(vUsuario==vObjJson.user && vSenha==vObjJson.password)){
+        alert("Usuário ou Senha informados não confere. Usuario / Abc$123");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// function validaGeral() {
+//     return false;
+// }
+
+function validaGeral() {
+    if(validaCelular() && validaUsuarioSenha()){
+        var vBotaoAssinar = document.getElementById("butassin");
+        vBotaoAssinar.disabled = false;
+        return true;
+    } else {
+        return false;
+    }
+}
