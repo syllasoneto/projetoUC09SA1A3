@@ -18,21 +18,20 @@
 </head>
 <body onload="contador();">
 
-<form name="form" id="form" onsubmit="return validaGeral();">
+<form name="form" id="form" onsubmit="return validar_tudo();">
   <table>
-  <tr><th colspan=2>Cadastro de Assinantes - Canais de Esporte </th></tr>
-  <tr><td colspan=2><p id="dataContador" align="right" disabled></p> </td></tr>
+  <tr><th colspan=2>Cadastro de Assinantes - Canais de Esporte</th></tr>
+  <tr><td colspan=2><p id="pCont" align="right" style="font-size: smaller;"></p></td></tr>
   <tr><td><label for="nome">Nome:</label></td>
     <td><input type="text" name="nome" id="nome" autocomplete="off" required></td></tr>
 
     <tr><td><label for="cpf">CPF:</label></td>
-    <td><input type="text" name="cpf" id="cpf" autocomplete="off" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"></td></tr>
+    <td><input type="text" name="cpf" id="cpf" autocomplete="off" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11}"></td></tr>
     <tr><td><label for="email">Email:</label></td>
     <td><input type="email" name="email" id="email" autocomplete="off" required></td></tr>
 
     <tr><td><label for="tel">Celular:</label></td>
-    <td><input type="text" name="cel" id="cel" autocomplete="off" 
-      required pattern="\(\d{2}\)\s\d{5}-\d{4}" onfocusout="validaCelular();"></td></tr>
+    <td><input type="text" name="cel" id="cel" autocomplete="off" required pattern="\d{2}\s\d{9}"></td></tr>
 
     <tr><td><label for="nascimento">Data Nascimento</label></td>
     <td><input type="date" name="nascimento" id="nascimento" 
@@ -40,20 +39,23 @@
 
     <tr><td><label for="salario">Salário:</label></td>
     <td><input type="text" name="salario" id="salario" 
-    autocomplete="off" style="text-align: right;" required></td></tr>
+    autocomplete="off" style="text-align: right;" required pattern="^\$?\d+(\.\d{3})*(,\d*)?$"></td></tr>
 
     <tr><td><label for="sexo">Sexo:</label></td>
-      <td><input type="radio" name="sexo" id="sexo" value="M" checked required>Masculino
+      <td><input type="radio" name="sexo" id="sexo" value="M" required>Masculino
     <input type="radio" name="sexo" id="sexo" value="F">Feminino</td></tr>
 
     <tr><td><label for="futebol">Time de Futebol:</label></td>
-      <td><select name="times" required>
-      <option value=""></option>
-      <option value="Corinthians">Corinthians</option>
-      <option value="Palmeiras">Palmeiras</option>
-      <option value="Santos">Santos</option>
-      <option value="São Paulo">São Paulo</option>
-    </select></td></tr>
+      <td>
+        <select name="times" required>
+          <option value=""></option>
+          <option value="Corinthians">Corinthians</option>
+          <option value="Palmeiras">Palmeiras</option>
+          <option value="Santos">Santos</option>
+          <option value="São Paulo">São Paulo</option>
+        </select>
+      </td>
+    <tr>
 
     <tr><td><label for="planos">Planos:</label></td>
       <td><input type="radio" name="planos" 
@@ -111,7 +113,7 @@
       maxlength="8" minlength="6" size=22 required>
     </td></tr>
 
-  <tr><th><button type="button" onclick="validaGeral();">Validar Formulário</button></th>
+  <tr><th><button type="submit">Validar Formulário</button></th>
     <th><input type="submit" name="butassin" id="butassin" value="Assinar" 
       disabled onclick="alert('Parabéns! Assinatura Realizada');"></th></tr>
   </table>

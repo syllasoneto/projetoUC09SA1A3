@@ -20,47 +20,44 @@ function totaliza()
     document.form.total.value = total.toFixed(2);
 }
 
-function validaCelular() {
-    var vCel = document.getElementById("cel");
-    if(!vCel.checkValidity()){
-        alert("Informe um celular válido - (99) 99999-9999");
-        return false;
-    } else {
-        return true;
-    }
-}
-
 function validaUsuarioSenha() {
     var vUsuario = document.getElementById("login").value;
     var vSenha = document.getElementById("senha").value;
-    var vValoresValidos = '{"user":"Usuario","password":"Abc$123"}';
-    var vObjJson = JSON.parse(vValoresValidos);
+    
+    var vJson = '{"user":"Usuario", "pass":"Abc$123"}';
 
-    if(!(vUsuario==vObjJson.user && vSenha==vObjJson.password)){
-        alert("Usuário ou Senha informados não confere. Usuario / Abc$123");
-        return false;
-    } else {
+    var vObjJson = JSON.parse(vJson);
+
+    if(vUsuario==vObjJson.user && vSenha==vObjJson.pass) {
         return true;
+    } else {
+        alert("Usuário e/ou Senha não conferem. Usuario / Abc$123");
+        return false;
     }
 }
 
-// function validaGeral() {
-//     return false;
-// }
+function validar_tudo() {
 
-function validaGeral() {
-    if(validaCelular() && validaUsuarioSenha()){
-        var vBotaoAssinar = document.getElementById("butassin");
-        vBotaoAssinar.disabled = false;
-        return true;
+    if(validaUsuarioSenha()) {
+
+        if(document.getElementById("butassin").disabled) {
+            document.getElementById("butassin").disabled = false;
+            return false;
+        } else {
+            return true;
+        }
+
     } else {
         return false;
     }
+
 }
 
 function contador() {
     var vData = new Date();
-    var vContadorP = document.getElementById("dataContador");
-    var vCont = 1;
-    setInterval(function () {vContadorP.innerHTML = vData + ' ' + vCont++}, 1000);
+    var vContP = document.getElementById("pCont");
+    var vCont = 0;
+
+    setInterval(function () {vContP.innerHTML = vData + ' ' + vCont++;}, 1000);
+    
 }
